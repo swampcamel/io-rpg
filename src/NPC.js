@@ -5,7 +5,7 @@ export default class NPC {
     this.strength = strength;
     this.agility = agility;
 
-    this.chanceToHit = this.agility * 6;
-    this.chanceToDodge = this.agility * 4;
+    this.chanceToHit = this.agility * .6;
+    this.chanceToDodge = this.agility * .4;
   }
 }

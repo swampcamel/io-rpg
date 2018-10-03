@@ -1,8 +1,74 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div class="creator">
+    <div class="formwrapper">
+      <form id="creatorForm">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <select class="form-control" name="gender">
+            <option value="default" name="gender" disabled selected="true">Gender</option>
+            <option value="male" name="gender">Male</option>
+            <option value="female" name="gender">Female</option>
+            <option value="nonbinary" name="gender">Non-binary</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control" name="class">
+            <option value="default" name="gender" disabled selected="true">Class</option>
+            <option value="pirate" name="class">Space Pirate</option>
+            <option value="cyborg" name="class">Government Cyborg</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="game">
+    <div class="player">
+      <div class="stats">
+        <p id="playerName">Boop <span></span></p>
+        <p id="playerGender">M <span></span></p>
+        <p id="playerAgility">Agility:  <span></span></p>
+        <p id="playerStrength">Strength:  <span></span></p>
+        <p id="playerLevel">Level:  <span></span></p>
+        <p id="playerXP">XP:  <span></span></p>
+      </div>
+      <img src="img/playerico.png">
+      <div class="vitalStats">
+        <h4 id="hit-points">HP: <span></span></h4>
+        <h4 id="energy">Energy: <span></span></h4>
+      </div>
+    </div>
+    <div class="rollBox">
+      <div class="playerRoll">
+        <h3>Your Roll</h3>
+        <h2 id="playerRollNumber"></h2>
+      </div>
+      <button type="button" class="btn btn-primary">ATTACK!!</button>
+      <div class="monsterRoll">
+        <h3>Monster Roll</h3>
+        <h2 id="monsterRollNumber"></h2>
+      </div>
+    </div>
+    <div class="monster">
+      <div class="stats">
+        <p id="monsterName">Bop</p>
+        <p id="monsterAgility">Agility: <span></span></p>
+        <p id="monsterStrength">Strength: <span></span></p>
+        <p id="monsterLevel">Level: <span></span></p>
+      </div>
+      <img src="img/monsterico.png">
+      <div class="vitalStats">
+        <h4 id="hit-points">HP: <span></span></h4>
+        <h4 id="energy">Energy: <span></span></h4>
+      </div>
+    </div>
+  </div>
+</body>
