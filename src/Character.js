@@ -22,7 +22,7 @@ export default class Character {
       console.log("Danger!");
     }
 
-    this.chanceToHit = this.agility * .6;
-    this.chanceToDodge = this.agility * .4;
+    this.chanceToHit = this.agility * .06;
+    this.chanceToDodge = this.agility * .04;
   }
 }

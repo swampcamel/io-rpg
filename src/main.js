@@ -3,18 +3,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './sass/styles.scss';
 import Character from './Character.js';
 import NPC from './NPC.js';
-import { battleStep } from './battle.js';
+import { battleStep, replaceMonster } from './battle.js';
 import $ from 'jquery';
 
 $(document).ready(function(){
   let playerCharacter;
-  let monster1 = new NPC(44, 5, 8, 8);
+  let monster1 = new NPC();
 
   $("form#creatorForm").submit(function(event) {
     event.preventDefault();
     const playerName = $('#nameInput').val();
     const playerGender = $('#gender').val();
     const playerClass = $('#class').val();
+    if(playerClass === "cyborg") {
+      $(".player #cyborgImage").show();
+    } else if (playerClass === "pirate") {
+      $(".player #pirateImage").show();
+    } else {
+      alert("Please Choose a class!");
+    }
     playerCharacter = new Character(playerName, playerGender, playerClass);
 
     $('.creator').hide();
@@ -40,7 +47,7 @@ $(document).ready(function(){
 
     $("#playerEnergy span").text(playerCharacter.energy);
 
-      console.log(playerCharacter);
+    console.log(playerCharacter);
   });
 
   $("#attack-btn").click(function(){
@@ -50,6 +57,9 @@ $(document).ready(function(){
     if (playerCharacter.hp <= 0) {
       $("#monsterWins").show();
     } else if (monster1.hp <= 0) {
+      monster1 = new NPC();
+      $("#monsterStrength span").text(monster1.strength);
+      $("#monsterAgility span").text(monster1.agility);
       $("#playerWins").show();
     }
     $("#playerHit-points span").text(playerCharacter.hp);
@@ -61,7 +71,7 @@ $(document).ready(function(){
 
 
 
-  })
+  });
 
 
 });

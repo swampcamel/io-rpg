@@ -4,13 +4,14 @@ export function battleStep (character, target) {
   let rollToHit = Math.random();
   let dodgeAttempt = Math.random();
 
-  if (rollToHit <= (character.chanceToHit * .1)) {
-    if (dodgeAttempt >= (target.chanceToDodge * .1)) {
+  if (rollToHit <= (character.chanceToHit)) {
+    if (dodgeAttempt >= (target.chanceToDodge)) {
       target.hp -= Math.round((character.strength * .4));
       $('#playerRollNumber').text("HIT!");
-      if(target.hp <= 0) {
-        console.log("he ded!")
-      }
+      $('#npcImage').addClass('shake-horizontal');
+      setTimeout(function() {
+        $('#npcImage').removeClass("shake-horizontal");
+      }, 450);
     } else {
       $('#playerRollNumber').text("DODGED!");
     }
@@ -21,13 +22,14 @@ export function battleStep (character, target) {
     dodgeAttempt = Math.random();
 
 
-   if (rollToHit <= (target.chanceToHit  * .1)) {
-    if (dodgeAttempt >= (character.chanceToDodge  * .1)) {
+   if (rollToHit <= (target.chanceToHit)) {
+    if (dodgeAttempt >= (character.chanceToDodge)) {
       character.hp -= Math.round((target.strength * .4));
       $('#monsterRollNumber').text("HIT!");
-      if(character.hp <=0){
-        console.log("yer ded.");
-      }
+      $('.animator').addClass('shake-horizontal');
+      setTimeout(function() {
+        $('.animator').removeClass("shake-horizontal");
+      }, 450);
     } else {
       $('#monsterRollNumber').text("DODGED!");
     }
@@ -39,3 +41,8 @@ export function battleStep (character, target) {
 
   return returnValues;
 }
+
+// export function replaceMonster(monster) {
+//   monster = new NPC(hp, xpValue, strength, agility);
+//   return monster;
+// }
