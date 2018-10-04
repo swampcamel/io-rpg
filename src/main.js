@@ -60,7 +60,10 @@ $(document).ready(function(){
       monster1 = new NPC();
       $("#monsterStrength span").text(monster1.strength);
       $("#monsterAgility span").text(monster1.agility);
-      $("#playerWins").show();
+      $("#npcImage").addClass("newMonsterAnimator");
+      setTimeout(function() {
+        $('#npcImage').removeClass("newMonsterAnimator");
+      }, 2050);
     }
     $("#playerHit-points span").text(playerCharacter.hp);
     $("#monsterHit-points span").text(monster1.hp);
